@@ -2495,6 +2495,11 @@ class SharedFile:
         """A convenience property to return True if this file resource is a directory on the remote server"""
         return bool(self.file_attributes & ATTR_DIRECTORY)
 
+    @property
+    def isReadOnly(self):
+        """A convenient property to return True if this file resource is read-only on the remote server"""
+        return bool(self.file_attributes & ATTR_READONLY)
+
     def __unicode__(self):
         return 'Shared file: %s (FileSize:%d bytes, isDirectory:%s)' % ( self.filename, self.file_size, self.isDirectory )
 
